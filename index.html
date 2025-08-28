@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Boylove 精彩片段</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #watchMoreBtn {
+      display: none;
+      padding: 12px 24px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    video {
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <video id="teaserVideo" autoplay muted playsinline>
+    <source src="teaser.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+  </video>
+
+  <br>
+  <button id="watchMoreBtn">👉 点击继续观看</button>
+
+  <script>
+    const video = document.getElementById('teaserVideo');
+    const button = document.getElementById('watchMoreBtn');
+    const redirectLink = "https://za52.run/";
+
+    video.addEventListener('timeupdate', () => {
+      if (video.currentTime >= 5 && button.style.display === 'none') {
+        video.pause();
+        button.style.display = 'inline-block';
+      }
+    });
+
+    button.addEventListener('click', () => {
+      window.location.href = redirectLink;
+    });
+  </script>
+
+</body>
+</html>
